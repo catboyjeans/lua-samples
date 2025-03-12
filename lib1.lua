@@ -3,10 +3,9 @@
 --> taken from https://www.lua.org/pil/contents.html
 -- try loading this file through the shell calling 'lua', and calling the command: 'dofile(<filename>.lua)'
 
--- Testing the LUA_INIT environment variable trough bash:
+-- Test the environment variable through the run.sh script!
 -- $ export LUA_INIT="@lib1.lua"
 -- $ lua
-print("lib1 loaded !")
 
 -- This function is local to the current chunk, aka. this file
 local function foo()
