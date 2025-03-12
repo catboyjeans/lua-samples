@@ -50,5 +50,91 @@ literal string!]]
 
 print(long_literal_string)
 
-line = io.read()
+--line = io.read()
+--print("Hiii: " .. line .. " " .. tostring(3.0))
+
+-- tables, everything is a table
+a = "332"
+my_table = { }
+my_table[a] = "some rando string"
+my_table[332] = 3.1416
+print("my_table[\"332\"] = " .. my_table["332"])
+print("my_table[332] = " .. my_table[332])
+
+my_table["b"] = "this is b"
+-- syntatic sugar => my_table.b = "this is b"
+
+print(my_table.b)
+print(my_table.b == my_table["b"])
+
+print("Printing my_table")
+
+for i=4,10 do
+    my_table[i] = i*2
+end
+
+for k, v in ipairs(my_table) do
+    print(k .. " : " .. v)
+end
+
+local function _test_or(v)
+    local val = v or "default value"
+    print("--Value provided =: " .. val)
+end
+
+_test_or("hello")
+_test_or()
+
+local table_1 = {"Monday", "Tuesday",
+                 "Wednesday", "星期四"}
+
+local table_2 = {x=0, y=4}
+
+
+--{x=0, y=0} => {["x"]=0, ["y"] = 0}
+
+--statements
+a, b, c = 1, 2
+print(a, b, c)
+
+print("Printing table")
+local i = 1
+while table_1[i] do
+    print(i, table_1[i])
+    i = i + 1;
+end
+
+-- populate old table beginning from 1
+for i=1, 7 do
+    my_table[i] = i
+end
+
+print("Printing table")
+for i,v in ipairs(my_table) do
+    print(i, v)
+end
+
+print("Printing table")
+for i,v in pairs(my_table) do
+    print(i, v)
+end
+
+-- Reverse test
+local function _print_table(t)
+    print("--Printing numbers table...")
+    for i, v in pairs(t) do
+        print(i, v)
+    end
+end
+
+local table_test = {"One", "Two", "Three", "Four", "Five"}
+
+_print_table(table_test)
+
+table_test_reverse = { }
+for i, v in ipairs(table_test) do
+    table_test_reverse[v] = i
+end
+
+_print_table(table_test_reverse)
 

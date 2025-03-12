@@ -38,4 +38,62 @@ strings
     concatenate 
         the '..' concatenates a string and a number in lua
 
+number to string
+    call tostring(<number>)
+
+tables
+    they are associative arrays
+    not only through numbers but with any type as key (except nil)
+    lua uses tables to represent packages as well
+    io.read => get the 'read' entry from the io table (package) 
+    
+    They are not values nor variables, they are objects
+
+    the program only manipulates references to it
+
+    there is no way to declare a table, we use a 'constructor expression'
+
+    a = {}  => create a table and store its reference in 'a'
+
+    there is no relationships between the variable that holds a reference to the
+    table, and the table itself
+
+    when there are no reference to the table, lua's garbage collector deletes it
+    
+    global variables
+        global variables are part of a table as well
+        use nil to delete a table's entry
+
+    No size? then when does an array ends?
+        At the first nil value
+
+userdata
+    allows arbitrary C data to be stored in Lua variables
+    It has no pre-defined operations except == and = (equality and assignment)
+
+    not equal / neq
+        it is '~=' instead of '!='
+
+boolean
+    two tables are the same if their variables point to the same table
+    not if their values are the same
+
+Table constructors { }
+
+control structures
+    if      then    end
+    while   do      end
+    repeat  <>      until   <condition>
+    for     do      end
+        numeric for
+            for var=exp1, exp2, exp3 do
+                something
+            end
+        generic for
+            iterator loop
+
+
+
+
+
 
