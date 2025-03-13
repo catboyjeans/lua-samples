@@ -92,7 +92,24 @@ control structures
         generic for
             iterator loop
 
+Iterators and generic for
+    --> https://www.lua.org/pil/7.html
+    
+Closures 
+    A sandbox environment
+        A closure keeps the captured variables even after they go out of scope
+        The value of the captured value is kept across calls
+        So this mechanism involves creating such captured value first
 
+        This usually is achieved through a 'factory' function and the closure itself
+
+Iterator
+    --> https://www.lua.org/pil/7.1.html
+    An iterator is a closure, that has a table and a state as captures, when called
+    it triggers some action on these captured elements, such as traversing across the
+    table in a particular way, or applying a function
+
+    The returns of the closure can vary depending on the use-case
 
 
 

@@ -176,3 +176,42 @@ _variable_args(32, 45, 54)
 local bar = function(arg) print(arg) end
 bar("hello!")
 
+-- sandbox closure
+local function _create_closure()
+    local a = 0
+    return function ()
+        a = a + 1
+        return a
+    end
+end
+
+print("--Testing closures")
+local closure_1 = _create_closure()
+print("\tclosure 1")
+print(closure_1())
+print(closure_1())
+
+local closure_2 = _create_closure()
+print("\tclosure 2")
+print(closure_2())
+print(closure_2())
+
+-- iterators
+-- the generic for calls our iterator until it returns nil
+print("--iterator test")
+local t = {}
+for i=1,10 do
+    t[i] = i
+end
+
+local function _custom_iterator(t)
+    local i = 0
+    return function ()
+        i = i + 1
+        return t[i]
+    end
+end
+
+for element in _custom_iterator(t) do
+    print(element)
+end
