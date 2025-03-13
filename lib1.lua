@@ -138,3 +138,41 @@ end
 
 _print_table(table_test_reverse)
 
+-- return statement must always be the last in a block!
+local function _break_test()
+    print("Excecuting outragious task...")
+    -- return -- <= syntax error!
+    do return end
+    local a = 1
+    print("finished!...")
+end
+
+_break_test()
+
+-- OOP style function
+local function _method(self, x)
+    print"--doing function..."
+    print("This is x: ", x)
+    print("This is my element y:", self.y)
+end
+
+local my_oop_object = {foo = _method, y = "I am y!"}
+
+-- oop method call notation
+my_oop_object:foo(32)
+
+-- variable arguments
+local function _variable_args(...)
+    arg = {...}
+    print("arg[n] = ", arg.n)
+    for i,v in ipairs(arg) do
+        print(i, tostring(v))
+    end
+end
+
+_variable_args(32, 45, 54)
+
+-- function syntatic sugar
+local bar = function(arg) print(arg) end
+bar("hello!")
+
